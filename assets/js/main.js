@@ -392,7 +392,9 @@
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
+        /* 뷰포트를 이미 지나친 요소(top < 0)도 노출.
+           앵커 점프로 건너뛴 섹션이 opacity:0 으로 남는 것을 막는다. */
+        if (!en.isIntersecting && en.boundingClientRect.top >= 0) return;
         en.target.classList.add('is-in');
         io.unobserve(en.target);
       });
@@ -404,6 +406,20 @@
       if (i > 0) el.style.transitionDelay = Math.min(i, 6) * 60 + 'ms';
       io.observe(el);
     });
+
+    /* 새로고침·앵커 진입 등으로 이미 스크롤된 상태면 위쪽 요소를 즉시 노출 */
+    function revealAbove() {
+      items.forEach(function (el) {
+        if (el.classList.contains('is-in')) return;
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.style.transitionDelay = '0ms';
+          el.classList.add('is-in');
+          io.unobserve(el);
+        }
+      });
+    }
+    if (window.pageYOffset > 0) revealAbove();
+    window.addEventListener('hashchange', function () { setTimeout(revealAbove, 60); });
   })();
 
   /* =========================================================
