@@ -20,7 +20,7 @@
 <link rel="preload" as="image" href="assets/img/hero-pack.webp">
 <!-- ?v= 는 캐시 무력화용. CSS/JS를 수정하면 이 값을 함께 올려야
      기존 방문자에게도 즉시 반영된다 (GitHub Pages가 에셋을 캐시함). -->
-<link rel="stylesheet" href="assets/css/style.css?v=6">
+<link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 <body>
 
@@ -283,6 +283,27 @@
     </div>
   </div>
 
+  <!-- ================= 라인업 밴드 =================
+       실제 제품컷 6장을 좌우 페이드로 겹쳐 한 장의 라인업 컷처럼 합성.
+       각 컷의 배경 베이지가 조금씩 달라(#e1ccb3~#a5876b) 단순 나열 시
+       경계가 보이므로, backdrop 위에서 서로 크로스페이드시킨다. -->
+  <section class="band" aria-label="LEVIO 제품 라인업">
+    <figure class="lineup">
+      <div class="lineup__row">
+        <span class="lineup__cell"><img src="assets/img/p-night.webp" alt="NIGHT 02 나이트 02" loading="lazy"></span>
+        <span class="lineup__cell"><img src="assets/img/p-move.webp" alt="MOVE 1200 무브 1200" loading="lazy"></span>
+        <span class="lineup__cell"><img src="assets/img/p-bio.webp" alt="BIO 10B 바이오 10B" loading="lazy"></span>
+        <span class="lineup__cell"><img src="assets/img/p-active.webp" alt="ACTIVE B8 액티브 B8" loading="lazy"></span>
+        <span class="lineup__cell"><img src="assets/img/p-mag.webp" alt="MAG 350 마그네슘 350" loading="lazy"></span>
+        <span class="lineup__cell"><img src="assets/img/p-collagen.webp" alt="COLLAGEN GLOW 콜라겐 글로우" loading="lazy"></span>
+      </div>
+    </figure>
+    <div class="container band__cap reveal">
+      <p class="band__eyebrow">Six routines, one system</p>
+      <p class="band__text">루틴마다 색을 나눴습니다. 오늘 필요한 색을 고르세요.</p>
+    </div>
+  </section>
+
   <!-- ================= 브랜드 스트립 ================= -->
   <section class="strip" aria-label="브랜드 약속">
     <div class="container strip__inner">
@@ -494,8 +515,8 @@
 
       <div class="process__grid">
         <figure class="process__media reveal">
-          <img src="assets/img/life-film.webp" alt="LEVIO 제품 라인업" loading="lazy" data-parallax="0.04">
-          <figcaption>Colour-coded by routine</figcaption>
+          <img src="assets/img/hero-lab.webp" alt="LEVIO 품질관리 공정" loading="lazy" data-parallax="0.04">
+          <figcaption>Quality control, every batch</figcaption>
         </figure>
 
         <ol class="process__steps">
@@ -564,9 +585,6 @@
 
   <!-- ================= TIME SALE (단일 대표 딜) ================= -->
   <section class="timesale" id="timesale" data-deadline="2026-12-31T23:59:59+09:00">
-    <figure class="timesale__bg" data-parallax="0.06">
-      <img src="assets/img/life-noir.webp" alt="" loading="lazy">
-    </figure>
     <div class="container timesale__inner">
       <header class="sec-head sec-head--invert reveal">
         <h2 class="sec-title">Time sale</h2>
@@ -613,7 +631,7 @@
       <div class="review__viewport" id="reviewViewport">
         <ul class="review__track" id="reviewTrack">
           <li class="review__item">
-            <span class="review__thumb"><img src="assets/img/life-lineup.webp" alt="후기 사진" loading="lazy"></span>
+            <span class="review__thumb"><img src="assets/img/d-bio.webp" alt="후기 사진" loading="lazy"></span>
             <div class="review__body">
               <i class="stars" style="--r:100%"></i>
               <p class="review__text">두 달째 먹고 있는데 아침이 확실히 편해졌어요. 캡슐도 작아서 삼키기 부담 없습니다.</p>
@@ -629,7 +647,7 @@
             </div>
           </li>
           <li class="review__item">
-            <span class="review__thumb"><img src="assets/img/life-night.webp" alt="후기 사진" loading="lazy"></span>
+            <span class="review__thumb"><img src="assets/img/d-night.webp" alt="후기 사진" loading="lazy"></span>
             <div class="review__body">
               <i class="stars" style="--r:80%"></i>
               <p class="review__text">자기 전에 한 알 먹고 눕는 루틴이 생겼어요. 패키지도 예뻐서 선물했습니다.</p>
@@ -684,7 +702,7 @@
         <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 1"><img src="assets/img/life-drop.webp" alt="" loading="lazy"></a></li>
         <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 2"><img src="assets/img/hero-pack.webp" alt="" loading="lazy"></a></li>
         <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 3"><img src="assets/img/scene-weigh.webp" alt="" loading="lazy"></a></li>
-        <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 4"><img src="assets/img/life-noir.webp" alt="" loading="lazy"></a></li>
+        <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 4"><img src="assets/img/p-collagen.webp" alt="" loading="lazy"></a></li>
         <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 5"><img src="assets/img/hero-lab.webp" alt="" loading="lazy"></a></li>
         <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 6"><img src="assets/img/d-night.webp" alt="" loading="lazy"></a></li>
       </ul>
@@ -758,6 +776,6 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<script src="assets/js/main.js?v=6"></script>
+<script src="assets/js/main.js?v=7"></script>
 </body>
 </html>

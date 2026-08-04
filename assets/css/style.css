@@ -421,7 +421,37 @@ body.is-locked{overflow:hidden;}
 .process{padding:130px 0;}
 .process__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;}
 .process__media{position:relative;overflow:hidden;}
-.process__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;will-change:transform;}
+.process__media > img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;will-change:transform;}
+
+/* ---------- 14-a. 라인업 밴드 (제품컷 6장 합성) ---------- */
+.band{position:relative;background:#e8d8c2;}
+.lineup{
+  position:relative;width:100%;aspect-ratio:3.3/1;overflow:hidden;
+  background:linear-gradient(168deg,#ecdfcb 0%,#ddc6ab 52%,#cdb094 100%);
+}
+.lineup__row{display:flex;width:100%;height:100%;}
+.lineup__cell{
+  position:relative;flex:1 1 0;min-width:0;height:100%;
+  margin-left:-3%;                  /* 인접 컷과 겹쳐 페이드 구간을 만든다 */
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%);
+}
+.lineup__cell:first-child{
+  margin-left:0;
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 86%,transparent 100%);
+  mask-image:linear-gradient(90deg,#000 0%,#000 86%,transparent 100%);
+}
+.lineup__cell:last-child{
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 100%);
+}
+.lineup__cell img{
+  width:100%;height:100%;object-fit:cover;object-position:center 58%;
+  mix-blend-mode:multiply;   /* 컷마다 다른 배경 밝기를 backdrop 과 곱해 균일화 */
+}
+.band__cap{padding:26px 0 30px;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;}
+.band__eyebrow{font-family:var(--f-display);font-style:italic;font-size:13px;letter-spacing:.2em;color:#7a6a55;}
+.band__text{font-size:14px;color:#6b5d4b;}
 .process__media figcaption{
   position:absolute;left:0;bottom:0;z-index:2;
   padding:12px 20px;background:rgba(28,26,23,.82);color:var(--c-paper);
@@ -522,9 +552,10 @@ body.is-locked{overflow:hidden;}
 
 /* ---------- 17. 타임세일 ---------- */
 .timesale{position:relative;overflow:hidden;padding:130px 0;background:var(--c-dark);color:rgba(255,255,255,.7);}
-.timesale__bg{position:absolute;inset:0;z-index:0;opacity:.22;will-change:transform;}
-.timesale__bg img{width:100%;height:114%;object-fit:cover;filter:grayscale(.3);}
-.timesale::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(80% 70% at 50% 40%,rgba(28,26,23,.5) 0%,rgba(28,26,23,.92) 100%);}
+.timesale::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(70% 60% at 50% 30%,rgba(117,154,24,.1) 0%,rgba(28,26,23,0) 100%);
+}
 .timesale__inner{position:relative;z-index:2;}
 .countdown{display:flex;align-items:baseline;justify-content:center;gap:26px;margin-bottom:60px;}
 .countdown__dday{font-family:var(--f-display);font-style:italic;font-size:16px;letter-spacing:.12em;color:rgba(255,255,255,.55);}
@@ -698,6 +729,14 @@ body.is-locked{overflow:hidden;}
   .marquee{padding:16px 0;}
   .marquee__seq{font-size:10.5px;}
   .marquee__seq i{margin:0 20px;}
+
+  /* 라인업 밴드: 좁은 화면에선 가로 스크롤로 제품을 온전히 보여준다 */
+  .lineup{aspect-ratio:auto;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+  .lineup::-webkit-scrollbar{display:none;}
+  .lineup__row{width:190%;height:auto;}
+  .lineup__cell{height:auto;}
+  .lineup__cell img{height:auto;aspect-ratio:3/4;}
+  .band__cap{padding:20px 0 24px;gap:10px;}
 
   .strip__inner{grid-template-columns:repeat(2,1fr);}
   .strip__item{padding:28px 14px;border-top:1px solid var(--c-line);}
