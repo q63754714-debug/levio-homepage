@@ -9,18 +9,19 @@
 
 /* ---------- 1. 디자인 토큰 ---------- */
 :root{
-  /* 지면 — 패키지 촬영 배경에서 가져온 웜 아이보리 */
-  --c-paper:#fbf8f2;
-  --c-paper-2:#f5f0e6;
+  /* 지면 — 시안(PTMD876379) 기준 화이트 + 뉴트럴 그레이 */
+  --c-paper:#ffffff;
+  --c-paper-2:#f7f7f5;
+  /* 제품 씬만 패키지 촬영 톤 유지 */
   --c-scene-a:#f6efe4;
   --c-scene-b:#e2d5c2;
 
-  /* 무채색 */
-  --c-text:#3a3733;
-  --c-sub:#7a746a;
-  --c-light:#a39c8f;
-  --c-line:#e9e3d7;
-  --c-line-2:#d8d1c2;
+  /* 무채색 (시안 추출값) */
+  --c-text:#353535;
+  --c-sub:#757575;
+  --c-light:#999999;
+  --c-line:#ececea;
+  --c-line-2:#dddddd;
   --c-dark:#1c1a17;
 
   /* 브랜드 */
@@ -301,7 +302,7 @@ body.is-locked{overflow:hidden;}
 /* ---------- 9. 헤더 ---------- */
 .header{
   position:sticky;top:0;z-index:500;
-  background:rgba(251,248,242,.88);
+  background:rgba(255,255,255,.9);
   -webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1);
   border-bottom:1px solid transparent;
   transition:border-color .3s,box-shadow .3s,background-color .3s;
@@ -329,8 +330,8 @@ body.is-locked{overflow:hidden;}
 .gnb__list{display:flex;align-items:center;gap:38px;}
 .gnb__item{position:relative;}
 .gnb__item > a{
-  display:block;padding:34px 0;font-size:12.5px;font-weight:500;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--c-dark);position:relative;
+  display:block;padding:34px 0;font-size:15px;font-weight:500;
+  letter-spacing:-.01em;color:var(--c-dark);position:relative;
 }
 .gnb__item > a::after{content:"";position:absolute;left:0;bottom:28px;width:0;height:1px;background:var(--c-dark);transition:width .35s var(--ease);}
 .gnb__item:hover > a::after{width:100%;}
@@ -340,7 +341,8 @@ body.is-locked{overflow:hidden;}
 .gnb__sub a:hover{color:var(--c-dark);background:var(--c-paper-2);padding-left:30px;}
 
 .logo{flex:none;text-align:center;padding:0 44px;}
-.logo__mark{display:block;font-family:var(--f-display);font-size:30px;font-weight:700;letter-spacing:.22em;text-indent:.22em;color:var(--c-dark);line-height:1;}
+/* 로고 — 실제 패키지 표기(볼드 산세리프 LEVIO · 르비오)와 일치 */
+.logo__mark{display:block;font-family:var(--f-body);font-size:25px;font-weight:800;letter-spacing:.3em;text-indent:.3em;color:var(--c-dark);line-height:1;}
 .logo__kr{display:block;margin-top:6px;font-size:10px;letter-spacing:.4em;text-indent:.4em;color:var(--c-light);}
 
 .gnb__util{flex:1 1 0;display:flex;align-items:center;justify-content:flex-end;gap:6px;}
@@ -349,7 +351,7 @@ body.is-locked{overflow:hidden;}
 
 .searchbar{
   position:sticky;top:var(--header-h);z-index:480;
-  background:rgba(251,248,242,.96);
+  background:rgba(255,255,255,.97);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--c-line);animation:slideDown .35s var(--ease-out) both;
 }
@@ -372,7 +374,7 @@ body.is-locked{overflow:hidden;}
 .drawer__panel{position:absolute;top:0;left:0;bottom:0;width:84%;max-width:340px;background:var(--c-paper);display:flex;flex-direction:column;animation:slideIn .4s var(--ease-out) both;overflow-y:auto;}
 @keyframes slideIn{from{transform:translateX(-100%);}to{transform:none;}}
 .drawer__head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--c-line);}
-.drawer__logo{font-family:var(--f-display);font-size:20px;font-weight:700;letter-spacing:.2em;}
+.drawer__logo{font-family:var(--f-body);font-size:18px;font-weight:800;letter-spacing:.28em;}
 .drawer__auth{display:flex;gap:8px;padding:18px 22px;}
 .drawer__auth .btn{flex:1;padding:0 10px;font-size:12px;}
 .drawer__nav{border-top:1px solid var(--c-line);}
@@ -394,14 +396,14 @@ body.is-locked{overflow:hidden;}
 .hero__track{display:flex;transition:transform .8s var(--ease-out);}
 .hero__slide{flex:0 0 100%;min-height:min(78vh,700px);display:flex;align-items:center;}
 .hero-a{background:
-  radial-gradient(80% 110% at 82% 10%,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 55%),
-  linear-gradient(112deg,#faf6ec 0%,#f0e7d5 48%,#e0d2ba 100%);}
+  radial-gradient(80% 110% at 82% 10%,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 55%),
+  linear-gradient(112deg,#f9f8f5 0%,#f0ede6 52%,#e3ded2 100%);}
 .hero-b{background:
-  radial-gradient(80% 110% at 82% 10%,rgba(255,255,255,.7) 0%,rgba(255,255,255,0) 55%),
-  linear-gradient(112deg,#f7f4f3 0%,#e9e0e6 48%,#cfc2cf 100%);}
+  radial-gradient(80% 110% at 82% 10%,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 55%),
+  linear-gradient(112deg,#f8f7f8 0%,#eeeaef 52%,#ded7e0 100%);}
 .hero-c{background:
-  radial-gradient(80% 110% at 82% 10%,rgba(255,255,255,.7) 0%,rgba(255,255,255,0) 55%),
-  linear-gradient(112deg,#f8f6ee 0%,#e9e7d3 48%,#ccceb2 100%);}
+  radial-gradient(80% 110% at 82% 10%,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 55%),
+  linear-gradient(112deg,#f8f8f4 0%,#eef0e8 52%,#dde0d2 100%);}
 
 .hero__inner{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:40px;}
 .hero__copy{min-width:0;}
@@ -413,23 +415,19 @@ body.is-locked{overflow:hidden;}
   content:"";display:inline-block;width:36px;height:1px;background:currentColor;
   margin-right:16px;vertical-align:middle;opacity:.5;
 }
+/* 국문 헤드라인은 산세리프(시안 기준), 영문 액센트만 세리프 이탤릭 */
 .hero__title{
-  font-family:var(--f-display);font-size:clamp(38px,4.9vw,68px);font-weight:400;
-  line-height:1.22;letter-spacing:-.03em;color:var(--c-dark);
+  font-family:var(--f-body);font-size:clamp(34px,4.4vw,58px);font-weight:700;
+  line-height:1.26;letter-spacing:-.045em;color:var(--c-dark);
 }
-.hero__title i{font-style:italic;color:var(--c-accent);}
+.hero__title i{font-family:var(--f-display);font-style:italic;font-weight:400;color:var(--c-accent);}
 .hero-b .hero__title i{color:#574860;}
 .hero__desc{margin-top:24px;font-size:15.5px;color:#5c574d;max-width:38ch;}
 .hero__copy .btn{margin-top:40px;}
 
 .hero__stage{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,.7vw,12px);min-width:0;}
-/* 고스트 워드마크 */
-.hero__stage::before{
-  content:"LEVIO";position:absolute;left:50%;top:-.62em;transform:translateX(-50%);
-  z-index:0;pointer-events:none;
-  font-family:var(--f-display);font-size:clamp(70px,9vw,140px);letter-spacing:.14em;text-indent:.14em;
-  color:transparent;-webkit-text-stroke:1px rgba(28,26,23,.1);
-}
+/* 고스트 워드마크 — 시안 대비 과한 장식이라 제거 */
+.hero__stage::before{content:none;}
 .hero__stage .pkg{font-size:clamp(6.5px,.98vw,12.5px);}
 .hero__stage--solo .pkg{font-size:clamp(9px,1.45vw,17px);}
 .hero__stage .pkg:nth-child(odd){transform:translateY(-2%);}
@@ -477,8 +475,8 @@ body.is-locked{overflow:hidden;}
 /* ---------- 12. 마퀴 ---------- */
 .marquee{overflow:hidden;border-bottom:1px solid var(--c-line);padding:22px 0;background:var(--c-paper);}
 .marquee__track{display:flex;width:max-content;animation:mq 38s linear infinite;}
-.marquee__seq{display:flex;align-items:center;white-space:nowrap;font-family:var(--f-display);font-style:italic;font-size:19px;letter-spacing:.04em;color:#948c7d;}
-.marquee__seq i{margin:0 30px;font-style:normal;color:var(--c-line-2);}
+.marquee__seq{display:flex;align-items:center;white-space:nowrap;font-family:var(--f-body);font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#a9a9a5;}
+.marquee__seq i{margin:0 26px;color:var(--c-line-2);}
 @keyframes mq{to{transform:translateX(-50%);}}
 
 /* ---------- 13. 브랜드 스트립 ---------- */
@@ -510,14 +508,15 @@ body.is-locked{overflow:hidden;}
 .badge--new{background:var(--c-accent);}
 .badge--sale{background:var(--c-sale);left:auto;right:14px;letter-spacing:.02em;text-indent:0;}
 
-.prod__body{display:block;padding-top:24px;text-align:center;}
-.prod__name{display:block;font-family:var(--f-display);font-size:16px;font-weight:400;color:var(--c-dark);line-height:1.5;letter-spacing:-.01em;}
+/* 상품 정보 — 시안처럼 좌측 정렬 + 산세리프 */
+.prod__body{display:block;padding-top:20px;text-align:left;}
+.prod__name{display:block;font-family:var(--f-body);font-size:14.5px;font-weight:500;color:var(--c-dark);line-height:1.5;letter-spacing:-.02em;}
 .prod__desc{display:block;margin-top:8px;font-size:12.5px;color:var(--c-sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .prod__vol{display:block;margin-top:4px;font-size:11px;color:var(--c-light);letter-spacing:.02em;}
-.prod__price{display:flex;align-items:baseline;justify-content:center;gap:9px;margin-top:14px;}
+.prod__price{display:flex;align-items:baseline;gap:8px;margin-top:12px;}
 .prod__price del{font-size:12.5px;color:var(--c-light);text-decoration:line-through;}
-.prod__price ins{font-family:var(--f-display);font-size:17px;font-weight:400;color:var(--c-dark);letter-spacing:-.01em;}
-.prod__meta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;}
+.prod__price ins{font-size:16px;font-weight:700;color:var(--c-dark);letter-spacing:-.03em;}
+.prod__meta{display:flex;align-items:center;gap:8px;margin-top:10px;}
 .prod__meta em{font-size:11px;color:var(--c-light);}
 
 /* ---------- 16. About / Membership ---------- */
@@ -528,7 +527,7 @@ body.is-locked{overflow:hidden;}
 .split__inner{max-width:520px;margin:0 auto;}
 .split__title{font-family:var(--f-display);font-style:italic;font-size:15px;font-weight:400;letter-spacing:.2em;color:var(--c-sub);}
 .split__col--member .split__title{color:rgba(255,255,255,.5);}
-.split__lead{margin-top:22px;font-family:var(--f-display);font-size:clamp(26px,2.6vw,36px);font-weight:400;line-height:1.42;letter-spacing:-.02em;color:var(--c-dark);}
+.split__lead{margin-top:22px;font-size:clamp(24px,2.4vw,32px);font-weight:300;line-height:1.45;letter-spacing:-.045em;color:var(--c-dark);}
 .split__col--member .split__lead{color:#fff;}
 .split__text{margin-top:24px;font-size:14px;line-height:1.95;color:var(--c-sub);}
 .split__inner .btn{margin-top:40px;}
@@ -559,11 +558,11 @@ body.is-locked{overflow:hidden;}
 .deal__body{padding:30px 30px 34px;display:flex;flex-direction:column;flex:1;}
 .deal__flag{align-self:flex-start;font-family:var(--f-display);font-style:italic;font-size:12px;letter-spacing:.18em;color:var(--c-sale);margin-bottom:16px;}
 .deal__flag::before{content:"";display:inline-block;width:22px;height:1px;background:var(--c-sale);margin-right:10px;vertical-align:middle;}
-.deal__name{font-family:var(--f-display);font-size:20px;font-weight:400;color:var(--c-dark);letter-spacing:-.01em;}
+.deal__name{font-size:18px;font-weight:700;color:var(--c-dark);letter-spacing:-.03em;}
 .deal__desc{margin-top:9px;font-size:12.5px;color:var(--c-sub);}
 .deal__price{display:flex;align-items:baseline;gap:10px;margin-top:18px;}
 .deal__price del{font-size:13px;color:var(--c-light);text-decoration:line-through;}
-.deal__price ins{font-family:var(--f-display);font-size:22px;font-weight:400;color:var(--c-dark);}
+.deal__price ins{font-size:21px;font-weight:700;color:var(--c-dark);letter-spacing:-.03em;}
 .deal__best{margin-top:6px;font-size:12.5px;color:var(--c-sub);}
 .deal__best b{color:var(--c-sale);font-weight:700;}
 .deal__body .btn{margin-top:26px;}
@@ -609,14 +608,14 @@ body.is-locked{overflow:hidden;}
 /* ---------- 19. 푸터 ---------- */
 .footer{padding:90px 0 70px;border-top:1px solid var(--c-line);background:var(--c-paper);}
 .footer__brand{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:44px;}
-.footer__mark{font-family:var(--f-display);font-size:clamp(44px,6vw,76px);letter-spacing:.2em;color:var(--c-dark);line-height:1;}
+.footer__mark{font-family:var(--f-body);font-weight:800;font-size:clamp(30px,4vw,48px);letter-spacing:.3em;color:var(--c-dark);line-height:1;}
 .footer__tag{font-family:var(--f-display);font-style:italic;font-size:13px;color:var(--c-light);letter-spacing:.04em;padding-bottom:8px;}
 .footer__links{display:flex;flex-wrap:wrap;gap:28px;padding:28px 0 32px;border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);font-size:13px;color:var(--c-sub);}
 .footer__links a:hover{color:var(--c-dark);}
 .footer__links b{color:var(--c-dark);font-weight:500;}
 .footer__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding:48px 0;border-bottom:1px solid var(--c-line);}
 .fcol__title{font-family:var(--f-display);font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--c-dark);margin-bottom:16px;}
-.fcol__tel{font-family:var(--f-display);font-size:25px;color:var(--c-dark);margin-bottom:8px;}
+.fcol__tel{font-size:23px;font-weight:700;letter-spacing:-.02em;color:var(--c-dark);margin-bottom:8px;}
 .fcol__txt{font-size:12.5px;color:var(--c-light);line-height:1.9;}
 .sns{display:flex;flex-direction:column;gap:8px;font-size:12.5px;color:var(--c-light);}
 .sns a{transition:color .2s;}
@@ -867,11 +866,11 @@ body.is-locked{overflow:hidden;}
 }
 .statement__eyebrow{font-family:var(--f-display);font-style:italic;font-size:13px;letter-spacing:.26em;color:var(--c-light);}
 .statement__quote{
-  margin:36px 0 0;
-  font-family:var(--f-display);font-size:clamp(28px,3.8vw,50px);font-weight:400;
-  line-height:1.5;letter-spacing:-.02em;color:var(--c-dark);
+  margin:34px 0 0;
+  font-size:clamp(25px,3.2vw,42px);font-weight:300;
+  line-height:1.55;letter-spacing:-.05em;color:var(--c-dark);
 }
-.statement__quote i{font-style:italic;color:var(--c-accent);}
+.statement__quote i{font-weight:500;color:var(--c-accent);}
 .statement__caption{margin-top:30px;font-size:14px;line-height:2.05;color:var(--c-sub);}
 
 /* ---------- 카드 디테일 ---------- */
