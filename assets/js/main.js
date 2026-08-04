@@ -60,7 +60,6 @@
       }
       stop();
       pop.hidden = true;
-      unlockScroll();
       document.removeEventListener('keydown', onKey);
     }
     function onKey(e) { if (e.key === 'Escape') close(); }
@@ -70,7 +69,6 @@
     pop.addEventListener('mouseleave', play);
 
     pop.hidden = false;
-    lockScroll();
     go(0);
     play();
     document.addEventListener('keydown', onKey);
