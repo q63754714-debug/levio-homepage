@@ -9,18 +9,20 @@
 <meta property="og:title" content="르비오 LEVIO | 매일의 균형을 설계합니다">
 <meta property="og:description" content="원료부터 배합까지, 매일 먹는 것이라 더 까다롭게.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#f6f1e8">
+<meta property="og:image" content="assets/img/hero-pack.webp">
+<meta name="theme-color" content="#ffffff">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@400;600;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/hero-pack.webp">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <a class="skip-link" href="#content">본문 바로가기</a>
 
-<!-- ================= 레이어 팝업 ================= -->
+<!-- ================= 레이어 팝업 (비차단 코너 카드) ================= -->
 <div class="layerpop" id="layerpop" hidden>
   <div class="layerpop__dim" data-close-pop></div>
   <div class="layerpop__box" role="dialog" aria-label="공지 팝업">
@@ -87,13 +89,13 @@
           <li class="gnb__item has-sub">
             <a href="#">Brand</a>
             <div class="gnb__sub"><ul>
-              <li><a href="#">브랜드 스토리</a></li>
-              <li><a href="#">원료 &amp; 품질관리</a></li>
+              <li><a href="#process">원료 &amp; 공정</a></li>
+              <li><a href="#membership">브랜드 스토리</a></li>
               <li><a href="#">생산 · 연구</a></li>
             </ul></div>
           </li>
           <li class="gnb__item has-sub">
-            <a href="#">Shop</a>
+            <a href="#best">Shop</a>
             <div class="gnb__sub"><ul>
               <li><a href="#">장 건강</a></li>
               <li><a href="#">이너뷰티</a></li>
@@ -111,7 +113,7 @@
               <li><a href="#">Q&amp;A</a></li>
             </ul></div>
           </li>
-          <li class="gnb__item"><a href="#">Event</a></li>
+          <li class="gnb__item"><a href="#finder">Find my routine</a></li>
         </ul>
       </nav>
 
@@ -173,7 +175,7 @@
       <ul class="acc" id="acc">
         <li class="acc__item">
           <button type="button" class="acc__head" aria-expanded="false">Brand</button>
-          <div class="acc__body"><ul><li><a href="#">브랜드 스토리</a></li><li><a href="#">원료 &amp; 품질관리</a></li><li><a href="#">생산 · 연구</a></li></ul></div>
+          <div class="acc__body"><ul><li><a href="#process">원료 &amp; 공정</a></li><li><a href="#membership">브랜드 스토리</a></li><li><a href="#">생산 · 연구</a></li></ul></div>
         </li>
         <li class="acc__item">
           <button type="button" class="acc__head" aria-expanded="false">Shop</button>
@@ -183,7 +185,7 @@
           <button type="button" class="acc__head" aria-expanded="false">Community</button>
           <div class="acc__body"><ul><li><a href="#">공지사항</a></li><li><a href="#">구매후기</a></li><li><a href="#">Q&amp;A</a></li></ul></div>
         </li>
-        <li class="acc__item"><a class="acc__link" href="#">Event</a></li>
+        <li class="acc__item"><a class="acc__link" href="#finder">Find my routine</a></li>
       </ul>
     </nav>
     <ul class="drawer__sub">
@@ -198,61 +200,53 @@
 
   <!-- ================= 히어로 ================= -->
   <section class="hero" aria-label="메인 배너">
-    <div class="hero__atmos" aria-hidden="true"><i></i><i></i><i></i><span class="hero__ray"></span></div>
     <div class="hero__viewport" id="heroViewport">
       <ul class="hero__track" id="heroTrack">
 
-        <!-- 슬라이드 1 : 라인업 (실험실 톤) -->
-        <li class="hero__slide hero-a">
+        <!-- S1 : 포장 라인 -->
+        <li class="hero__slide hero--photo">
+          <figure class="hero__bg" data-parallax="0.1">
+            <img src="assets/img/hero-pack.webp" alt="" fetchpriority="high">
+          </figure>
+          <div class="hero__scrim" aria-hidden="true"></div>
           <div class="container hero__inner">
             <div class="hero__copy">
-              <span class="hero__eyebrow">Daily Routine</span>
-              <h2 class="hero__title">매일의 균형을<br><i>설계합니다</i></h2>
-              <p class="hero__desc">필요한 것만, 정직한 함량으로. 르비오의 여섯 가지 루틴.</p>
+              <span class="hero__eyebrow">LEVIO · Daily Routine</span>
+              <h2 class="hero__title">매일의 균형을<br><i>설계</i>합니다</h2>
+              <p class="hero__desc">여섯 가지 컬러, 여섯 가지 루틴.<br>필요한 것만 정직한 함량으로 담았습니다.</p>
               <a href="#best" class="btn btn--dark">전체 라인업 보기</a>
-            </div>
-            <div class="hero__stage" aria-hidden="true">
-              <span class="pkg pkg--night pkg--sm"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>NIGHT 02</b><em>나이트 02 · 수면 루틴</em></span></span></span>
-              <span class="pkg pkg--move pkg--sm"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>MOVE 1200</b><em>무브 1200 · 관절 · 연골</em></span></span></span>
-              <span class="pkg pkg--active pkg--sm"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>ACTIVE B8</b><em>액티브 B8 · 에너지</em></span></span></span>
-              <span class="pkg pkg--collagen pkg--sm"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>COLLAGEN<br>GLOW</b><em>데일리 이너뷰티</em></span></span></span>
-              <span class="pkg pkg--bio pkg--sm"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>BIO 10B</b><em>바이오 10B · 장 건강</em></span></span></span>
             </div>
           </div>
         </li>
 
-        <!-- 슬라이드 2 : NIGHT 02 -->
-        <li class="hero__slide hero-b">
+        <!-- S2 : NIGHT 02 (스플릿 제품컷) -->
+        <li class="hero__slide hero--split hero--night">
+          <span class="deco deco--ellipse deco--hero" aria-hidden="true" data-parallax="0.06"></span>
           <div class="container hero__inner">
             <div class="hero__copy">
               <span class="hero__eyebrow">New Arrival</span>
               <h2 class="hero__title">잠들기 30분 전,<br><i>NIGHT 02</i></h2>
               <p class="hero__desc">식물 유래 멜라토닌 2mg. 1일 1정, 30일 루틴.</p>
-              <a href="#new" class="btn btn--dark">신제품 확인하기</a>
+              <a href="#best" class="btn btn--dark">신제품 확인하기</a>
             </div>
-            <div class="hero__stage hero__stage--solo" aria-hidden="true">
-              <span class="pkg pkg--night pkg--lg">
-                <span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>NIGHT 02</b><em>나이트 02 · 수면 루틴</em><small>식물 유래 멜라토닌 2mg<br>1일 1정 · 30일</small></span></span>
-                <span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>NIGHT 02</b><em>나이트 02</em></span></span>
-              </span>
-            </div>
+            <figure class="hero__product" data-parallax="-0.06">
+              <img src="assets/img/d-night.webp" alt="LEVIO NIGHT 02 나이트 02 패키지">
+            </figure>
           </div>
         </li>
 
-        <!-- 슬라이드 3 : 정기구독 -->
-        <li class="hero__slide hero-c">
+        <!-- S3 : 원료 계량 씬 -->
+        <li class="hero__slide hero--photo">
+          <figure class="hero__bg" data-parallax="0.1">
+            <img src="assets/img/scene-weigh.webp" alt="">
+          </figure>
+          <div class="hero__scrim" aria-hidden="true"></div>
           <div class="container hero__inner">
             <div class="hero__copy">
-              <span class="hero__eyebrow">Subscription</span>
-              <h2 class="hero__title">정기구독으로<br><i>최대 25%</i> 할인</h2>
-              <p class="hero__desc">배송 주기는 언제든 자유롭게 변경할 수 있어요.</p>
-              <a href="#membership" class="btn btn--dark">혜택 살펴보기</a>
-            </div>
-            <div class="hero__stage hero__stage--solo" aria-hidden="true">
-              <span class="pkg pkg--bio pkg--lg">
-                <span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>BIO 10B</b><em>바이오 10B · 장 건강</em><small>프로바이오틱스 100억 CFU<br>1일 1캡슐</small></span></span>
-                <span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>BIO 10B</b><em>바이오 10B</em></span></span>
-              </span>
+              <span class="hero__eyebrow">Quality Control</span>
+              <h2 class="hero__title">원료부터 완제품까지<br><i>12단계</i> 검증</h2>
+              <p class="hero__desc">매일 먹는 것이라, 더 까다롭게 만듭니다.</p>
+              <a href="#process" class="btn btn--dark">공정 살펴보기</a>
             </div>
           </div>
         </li>
@@ -288,19 +282,45 @@
   <!-- ================= 브랜드 스트립 ================= -->
   <section class="strip" aria-label="브랜드 약속">
     <div class="container strip__inner">
-      <div class="strip__item reveal"><b>12단계</b><span>원료 산지부터 완제품까지</span></div>
-      <div class="strip__item reveal"><b>HACCP</b><span>인증 시설에서 생산</span></div>
-      <div class="strip__item reveal"><b>무첨가</b><span>불필요한 부형제는 덜어냄</span></div>
-      <div class="strip__item reveal"><b>당일출고</b><span>오후 2시 이전 주문 기준</span></div>
+      <div class="strip__item reveal">
+        <span class="strip__ico" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M9 6h14a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M12 12h8M12 17h8M12 22h5"/><path d="M13 3h6v5h-6z"/></svg>
+        </span>
+        <b><em data-counter="12">0</em>단계</b>
+        <span>원료 산지부터 완제품까지</span>
+      </div>
+      <div class="strip__item reveal">
+        <span class="strip__ico" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 3l10 4v8c0 7-4.4 11.6-10 14C10.4 26.6 6 22 6 15V7l10-4z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></svg>
+        </span>
+        <b>HACCP</b>
+        <span>인증 시설에서 생산</span>
+      </div>
+      <div class="strip__item reveal">
+        <span class="strip__ico" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M23 5c-9 1-14 5.5-15.5 13C6.7 22 9 25.5 13 26c7 .8 11-5 12-16 .1-2-.5-4.5-2-5z"/><path d="M9 26c2.5-6 6.5-10.5 12-14"/></svg>
+        </span>
+        <b>무첨가</b>
+        <span>불필요한 부형제는 덜어냄</span>
+      </div>
+      <div class="strip__item reveal">
+        <span class="strip__ico" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M3 8h16v14H3z"/><path d="M19 13h6l4 4v5h-10z"/><circle cx="8.5" cy="25" r="2.5"/><circle cx="23.5" cy="25" r="2.5"/></svg>
+        </span>
+        <b><em data-counter="14">0</em>시 이전</b>
+        <span>주문 시 당일출고</span>
+      </div>
     </div>
   </section>
 
-  <!-- ================= BEST ITEM ================= -->
-  <section class="section" id="best">
+  <!-- ================= BEST ITEM (유일한 상품 그리드) ================= -->
+  <section class="section section--deco" id="best">
+    <span class="deco deco--ellipse deco--a" aria-hidden="true" data-parallax="0.08"></span>
+    <span class="deco deco--dot deco--b" aria-hidden="true" data-parallax="-0.05"></span>
     <div class="container">
       <header class="sec-head reveal">
-        <h2 class="sec-title">Best item</h2>
-        <p class="sec-desc">가장 많은 분들이 다시 찾은 제품</p>
+        <h2 class="sec-title">The Lineup</h2>
+        <p class="sec-desc">여섯 가지 컬러, 여섯 가지 루틴</p>
       </header>
 
       <div class="tags reveal" role="tablist" aria-label="카테고리 필터">
@@ -314,15 +334,11 @@
       </div>
 
       <ul class="prod-grid" id="bestGrid">
-
         <li class="prod reveal" data-cat="gut">
           <a href="#" class="prod__link">
             <span class="prod__thumb">
               <b class="badge badge--best">BEST</b><b class="badge badge--sale">15%</b>
-              <span class="pkg pkg--bio">
-                <span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>BIO 10B</b><em>바이오 10B · 장 건강</em><small>프로바이오틱스 100억 CFU<br>1일 1캡슐</small></span></span>
-                <span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>BIO 10B</b><em>바이오 10B</em></span></span>
-              </span>
+              <img src="assets/img/p-bio.webp" alt="LEVIO BIO 10B 바이오 10B — 올리브 그린 패키지와 앰버 보틀" loading="lazy">
             </span>
             <span class="prod__body">
               <strong class="prod__name">BIO 10B 바이오 10B</strong>
@@ -333,15 +349,11 @@
             </span>
           </a>
         </li>
-
         <li class="prod reveal" data-cat="beauty">
           <a href="#" class="prod__link">
             <span class="prod__thumb">
               <b class="badge badge--best">BEST</b><b class="badge badge--sale">15%</b>
-              <span class="pkg pkg--collagen">
-                <span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>COLLAGEN<br>GLOW</b><em>데일리 이너뷰티</em><small>콜라겐 · 1일 1정 · 60일</small></span></span>
-                <span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>COLLAGEN<br>GLOW</b><em>데일리 이너뷰티</em></span></span>
-              </span>
+              <img src="assets/img/p-collagen.webp" alt="LEVIO COLLAGEN GLOW 콜라겐 글로우 — 크림슨 레드 패키지" loading="lazy">
             </span>
             <span class="prod__body">
               <strong class="prod__name">COLLAGEN GLOW 콜라겐 글로우</strong>
@@ -352,15 +364,11 @@
             </span>
           </a>
         </li>
-
         <li class="prod reveal" data-cat="joint">
           <a href="#" class="prod__link">
             <span class="prod__thumb">
               <b class="badge badge--sale">12%</b>
-              <span class="pkg pkg--move">
-                <span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>MOVE 1200</b><em>무브 1200 · 관절 · 연골 건강</em><small>콘드로이친 1,200 mg<br>1일 1포 · 30일</small></span></span>
-                <span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>MOVE 1200</b><em>무브 1200</em></span></span>
-              </span>
+              <img src="assets/img/p-move.webp" alt="LEVIO MOVE 1200 무브 1200 — 네이비 패키지" loading="lazy">
             </span>
             <span class="prod__body">
               <strong class="prod__name">MOVE 1200 무브 1200</strong>
@@ -371,15 +379,11 @@
             </span>
           </a>
         </li>
-
         <li class="prod reveal" data-cat="energy">
           <a href="#" class="prod__link">
             <span class="prod__thumb">
               <b class="badge badge--sale">12%</b>
-              <span class="pkg pkg--active">
-                <span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>ACTIVE B8</b><em>액티브 B8 · 에너지 · 활력</em><small>비타민 B군 8종<br>1일 1정 · 60일</small></span></span>
-                <span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>ACTIVE B8</b><em>액티브 B8</em></span></span>
-              </span>
+              <img src="assets/img/p-active.webp" alt="LEVIO ACTIVE B8 액티브 B8 — 머스타드 패키지" loading="lazy">
             </span>
             <span class="prod__body">
               <strong class="prod__name">ACTIVE B8 액티브 B8</strong>
@@ -390,15 +394,11 @@
             </span>
           </a>
         </li>
-
         <li class="prod reveal" data-cat="sleep">
           <a href="#" class="prod__link">
             <span class="prod__thumb">
               <b class="badge badge--new">NEW</b><b class="badge badge--sale">13%</b>
-              <span class="pkg pkg--night">
-                <span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>NIGHT 02</b><em>나이트 02 · 수면 루틴</em><small>식물 유래 멜라토닌 2 mg<br>1일 1정 · 30일</small></span></span>
-                <span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>NIGHT 02</b><em>나이트 02</em></span></span>
-              </span>
+              <img src="assets/img/p-night.webp" alt="LEVIO NIGHT 02 나이트 02 — 플럼 퍼플 패키지" loading="lazy">
             </span>
             <span class="prod__body">
               <strong class="prod__name">NIGHT 02 나이트 02</strong>
@@ -409,15 +409,11 @@
             </span>
           </a>
         </li>
-
         <li class="prod reveal" data-cat="mineral">
           <a href="#" class="prod__link">
             <span class="prod__thumb">
               <b class="badge badge--sale">13%</b>
-              <span class="pkg pkg--mag">
-                <span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>MAG 350</b><em>마그네슘 350</em><small>마그네슘 350 mg<br>1일 2정 · 30일</small></span></span>
-                <span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>MAG 350</b><em>마그네슘 350</em></span></span>
-              </span>
+              <img src="assets/img/p-mag.webp" alt="LEVIO MAG 350 마그네슘 350 — 아이보리 패키지" loading="lazy">
             </span>
             <span class="prod__body">
               <strong class="prod__name">MAG 350 마그네슘 350</strong>
@@ -428,34 +424,114 @@
             </span>
           </a>
         </li>
-
       </ul>
 
       <p class="prod-grid__empty" id="bestEmpty" hidden>해당 카테고리의 상품이 아직 없습니다.</p>
+    </div>
+  </section>
 
-      <div class="sec-more reveal">
-        <a href="#" class="btn btn--line btn--wide">전체 상품 보기</a>
+  <!-- ================= 고민 파인더 ================= -->
+  <section class="finder" id="finder">
+    <span class="deco deco--ellipse deco--c" aria-hidden="true" data-parallax="0.07"></span>
+    <div class="container">
+      <header class="sec-head reveal">
+        <h2 class="sec-title">Find my routine</h2>
+        <p class="sec-desc">지금 고민을 고르거나 직접 적어주세요. 맞는 루틴을 찾아드릴게요.</p>
+      </header>
+
+      <div class="finder__panel reveal">
+        <div class="finder__chips" role="group" aria-label="고민 선택">
+          <button type="button" class="chip" data-concern="장이 예민하고 속이 더부룩해요">장이 예민해요</button>
+          <button type="button" class="chip" data-concern="피부가 푸석하고 탄력이 떨어져요">피부가 푸석해요</button>
+          <button type="button" class="chip" data-concern="계단 오를 때 무릎 관절이 시큰해요">무릎이 시큰해요</button>
+          <button type="button" class="chip" data-concern="아침이 무겁고 하루종일 피로해요">아침이 무거워요</button>
+          <button type="button" class="chip" data-concern="잠들기가 어렵고 자주 뒤척여요">잠들기 어려워요</button>
+          <button type="button" class="chip" data-concern="눈 밑이 떨리고 근육이 자주 뭉쳐요">눈 밑이 떨려요</button>
+        </div>
+
+        <form class="finder__form" id="finderForm">
+          <input type="text" id="finderInput" placeholder="예) 회식이 잦아서 아침마다 몸이 무거워요" aria-label="고민 입력" autocomplete="off" maxlength="80">
+          <button type="submit" class="btn btn--dark">루틴 찾기</button>
+        </form>
+
+        <div class="finder__result" id="finderResult" aria-live="polite"></div>
       </div>
     </div>
   </section>
 
-  <!-- ================= 스테이트먼트 ================= -->
-  <section class="statement">
+  <!-- ================= TODAY'S DROP (에디토리얼 배너) ================= -->
+  <section class="drop" aria-label="이번 달 신제품">
+    <figure class="drop__bg" data-parallax="0.08">
+      <img src="assets/img/life-drop.webp" alt="LEVIO 신제품 패키지" loading="lazy">
+    </figure>
+    <div class="container drop__inner">
+      <div class="drop__copy reveal">
+        <span class="drop__eyebrow">Today’s Drop</span>
+        <h2 class="drop__title">이번 달의<br><i>새로운 루틴</i></h2>
+        <p class="drop__desc">
+          아침 햇살이 드는 자리에 두고 싶은 패키지.<br>
+          NIGHT 02 · MAG 350이 새로 합류했습니다.
+        </p>
+        <div class="drop__cta">
+          <a href="#best" class="btn btn--dark">신제품 보기</a>
+          <a href="#finder" class="btn btn--line">내 루틴 찾기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 원료 & 공정 ================= -->
+  <section class="process section--soft" id="process">
     <div class="container">
-      <p class="statement__eyebrow reveal">Our Philosophy</p>
-      <blockquote class="statement__quote reveal">
-        몸에 들어가는 것은<br><i>단순할수록 좋다</i>고 믿습니다
-      </blockquote>
-      <p class="statement__caption reveal">
-        매일 삼키는 한 알이기에 — 르비오는 화려한 배합 대신,<br>
-        필요한 원료의 정확한 함량을 택합니다.
-      </p>
+      <header class="sec-head reveal">
+        <h2 class="sec-title">Process</h2>
+        <p class="sec-desc">원료 산지 확인부터 완제품 검사까지</p>
+      </header>
+
+      <div class="process__grid">
+        <figure class="process__media reveal">
+          <img src="assets/img/life-film.webp" alt="LEVIO 제품 라인업" loading="lazy" data-parallax="0.04">
+          <figcaption>Colour-coded by routine</figcaption>
+        </figure>
+
+        <ol class="process__steps">
+          <li class="pstep reveal">
+            <span class="pstep__no">01</span>
+            <div>
+              <strong>원료 선별</strong>
+              <p>산지와 규격을 확인하고 입고 시 성적서를 대조합니다.</p>
+            </div>
+          </li>
+          <li class="pstep reveal">
+            <span class="pstep__no">02</span>
+            <div>
+              <strong>계량 · 배합</strong>
+              <p>표시 함량 그대로, 불필요한 부형제는 덜어냅니다.</p>
+            </div>
+          </li>
+          <li class="pstep reveal">
+            <span class="pstep__no">03</span>
+            <div>
+              <strong>성형 · 충전</strong>
+              <p>HACCP 인증 시설에서 온·습도를 관리하며 생산합니다.</p>
+            </div>
+          </li>
+          <li class="pstep reveal">
+            <span class="pstep__no">04</span>
+            <div>
+              <strong>완제품 검사</strong>
+              <p>출고 전 관능·이물·함량 검사를 거쳐 최종 확인합니다.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 
   <!-- ================= ABOUT / MEMBERSHIP ================= -->
   <section class="split" id="membership">
     <div class="split__col split__col--about reveal">
+      <img class="split__photo" src="assets/img/hero-lab.webp" alt="" loading="lazy" data-parallax="0.05">
       <div class="split__inner">
         <h2 class="split__title">About</h2>
         <p class="split__lead">매일 먹는 것이라<br>더 까다롭게 만듭니다</p>
@@ -463,10 +539,11 @@
           르비오는 원료 산지 확인부터 완제품 검사까지 12단계를 거칩니다.
           불필요한 부형제는 덜어내고, 실제로 필요한 함량만 정직하게 담았습니다.
         </p>
-        <a href="#" class="btn btn--line">브랜드 스토리</a>
+        <a href="#process" class="btn btn--paper">브랜드 스토리</a>
       </div>
     </div>
     <div class="split__col split__col--member reveal">
+      <span class="deco deco--ellipse deco--member" aria-hidden="true"></span>
       <div class="split__inner">
         <h2 class="split__title">Member ship</h2>
         <p class="split__lead">온라인 몰 회원 혜택</p>
@@ -481,9 +558,12 @@
     </div>
   </section>
 
-  <!-- ================= TIME SALE ================= -->
+  <!-- ================= TIME SALE (단일 대표 딜) ================= -->
   <section class="timesale" id="timesale" data-deadline="2026-12-31T23:59:59+09:00">
-    <div class="container">
+    <figure class="timesale__bg" data-parallax="0.06">
+      <img src="assets/img/life-noir.webp" alt="" loading="lazy">
+    </figure>
+    <div class="container timesale__inner">
       <header class="sec-head sec-head--invert reveal">
         <h2 class="sec-title">Time sale</h2>
         <p class="sec-desc">기간 한정, 지금이 가장 좋은 가격</p>
@@ -494,99 +574,22 @@
         <span class="countdown__clock"><b id="cdH">00</b><i>:</i><b id="cdM">00</b><i>:</i><b id="cdS">00</b></span>
       </div>
 
-      <ul class="deal-grid">
-        <li class="deal reveal">
-          <span class="deal__thumb">
-            <span class="pkg pkg--collagen"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>COLLAGEN<br>GLOW</b><em>데일리 이너뷰티</em></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO</i><b>COLLAGEN<br>GLOW</b></span></span></span>
-          </span>
-          <div class="deal__body">
-            <span class="deal__flag">Hot deal</span>
-            <strong class="deal__name">COLLAGEN GLOW</strong>
-            <p class="deal__desc">데일리 이너뷰티 · 1일 1정 · 60일</p>
-            <p class="deal__price"><del>45,000원</del><ins>38,000원</ins></p>
-            <p class="deal__best">2개 구매 시 <b>개당 33,200원</b></p>
-            <a href="#" class="btn btn--dark btn--full">Buy now</a>
+      <div class="tdeal reveal">
+        <figure class="tdeal__media">
+          <img src="assets/img/d-bio.webp" alt="LEVIO BIO 10B 특가" loading="lazy">
+        </figure>
+        <div class="tdeal__body">
+          <span class="tdeal__flag">Hot deal</span>
+          <h3 class="tdeal__name">BIO 10B 바이오 10B</h3>
+          <p class="tdeal__desc">프로바이오틱스 100억 CFU · 1일 1캡슐 · 30일분</p>
+          <p class="tdeal__price"><del>39,000원</del><ins>33,000원</ins><b class="tdeal__off">15% OFF</b></p>
+          <p class="tdeal__best">3개 구매 시 <b>개당 28,900원</b> · 정기구독 시 추가 10%</p>
+          <div class="tdeal__cta">
+            <a href="#" class="btn btn--paper">Buy now</a>
+            <a href="#" class="btn btn--ghost">장바구니 담기</a>
           </div>
-        </li>
-        <li class="deal reveal">
-          <span class="deal__thumb">
-            <span class="pkg pkg--bio"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>BIO 10B</b><em>바이오 10B · 장 건강</em></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO</i><b>BIO 10B</b></span></span></span>
-          </span>
-          <div class="deal__body">
-            <span class="deal__flag">Hot deal</span>
-            <strong class="deal__name">BIO 10B</strong>
-            <p class="deal__desc">프로바이오틱스 100억 CFU · 1일 1캡슐</p>
-            <p class="deal__price"><del>39,000원</del><ins>33,000원</ins></p>
-            <p class="deal__best">3개 구매 시 <b>개당 28,900원</b></p>
-            <a href="#" class="btn btn--dark btn--full">Buy now</a>
-          </div>
-        </li>
-        <li class="deal reveal">
-          <span class="deal__thumb">
-            <span class="pkg pkg--move"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>MOVE 1200</b><em>무브 1200 · 관절 · 연골</em></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO</i><b>MOVE 1200</b></span></span></span>
-          </span>
-          <div class="deal__body">
-            <span class="deal__flag">Hot deal</span>
-            <strong class="deal__name">MOVE 1200</strong>
-            <p class="deal__desc">콘드로이친 1,200 mg · 1일 1포 · 30일</p>
-            <p class="deal__price"><del>49,000원</del><ins>43,000원</ins></p>
-            <p class="deal__best">정기구독 시 <b>개당 36,700원</b></p>
-            <a href="#" class="btn btn--dark btn--full">Buy now</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ================= RECOMMENDED ================= -->
-  <section class="section">
-    <div class="container">
-      <header class="sec-head reveal">
-        <h2 class="sec-title">Recommended</h2>
-        <p class="sec-desc">지금 고민에 맞춰 골라 담기</p>
-      </header>
-      <ul class="prod-grid">
-        <li class="prod reveal"><a href="#" class="prod__link">
-          <span class="prod__thumb"><span class="pkg pkg--active"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>ACTIVE B8</b><em>액티브 B8 · 에너지 · 활력</em></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO</i><b>ACTIVE B8</b></span></span></span></span>
-          <span class="prod__body"><strong class="prod__name">ACTIVE B8 액티브 B8</strong><span class="prod__desc">아침이 무거운 날을 위해</span><span class="prod__price"><del>32,000원</del><ins>28,000원</ins></span></span>
-        </a></li>
-        <li class="prod reveal"><a href="#" class="prod__link">
-          <span class="prod__thumb"><span class="pkg pkg--mag"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>MAG 350</b><em>마그네슘 350</em></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO</i><b>MAG 350</b></span></span></span></span>
-          <span class="prod__body"><strong class="prod__name">MAG 350 마그네슘 350</strong><span class="prod__desc">눈 밑 떨림이 잦다면</span><span class="prod__price"><del>29,000원</del><ins>25,000원</ins></span></span>
-        </a></li>
-        <li class="prod reveal"><a href="#" class="prod__link">
-          <span class="prod__thumb"><span class="pkg pkg--night"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>NIGHT 02</b><em>나이트 02 · 수면 루틴</em></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO</i><b>NIGHT 02</b></span></span></span></span>
-          <span class="prod__body"><strong class="prod__name">NIGHT 02 나이트 02</strong><span class="prod__desc">잠들기까지 오래 걸린다면</span><span class="prod__price"><del>36,000원</del><ins>31,000원</ins></span></span>
-        </a></li>
-        <li class="prod reveal"><a href="#" class="prod__link">
-          <span class="prod__thumb"><span class="pkg pkg--move"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>MOVE 1200</b><em>무브 1200 · 관절 · 연골</em></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO</i><b>MOVE 1200</b></span></span></span></span>
-          <span class="prod__body"><strong class="prod__name">MOVE 1200 무브 1200</strong><span class="prod__desc">계단이 불편해지기 시작했다면</span><span class="prod__price"><del>49,000원</del><ins>43,000원</ins></span></span>
-        </a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ================= NEW PRODUCTS ================= -->
-  <section class="section section--soft" id="new">
-    <div class="container">
-      <header class="sec-head reveal">
-        <h2 class="sec-title">New products</h2>
-        <p class="sec-desc">이번 달 새로 나왔습니다</p>
-      </header>
-      <ul class="prod-grid prod-grid--3">
-        <li class="prod reveal"><a href="#" class="prod__link">
-          <span class="prod__thumb"><b class="badge badge--new">NEW</b><span class="pkg pkg--night"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>NIGHT 02</b><em>나이트 02 · 수면 루틴</em><small>식물 유래 멜라토닌 2 mg</small></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>NIGHT 02</b><em>나이트 02</em></span></span></span></span>
-          <span class="prod__body"><strong class="prod__name">NIGHT 02 나이트 02</strong><span class="prod__desc">식물 유래 멜라토닌 2 mg · 30일</span><span class="prod__price"><del>36,000원</del><ins>31,000원</ins></span></span>
-        </a></li>
-        <li class="prod reveal"><a href="#" class="prod__link">
-          <span class="prod__thumb"><b class="badge badge--new">NEW</b><span class="pkg pkg--mag"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>MAG 350</b><em>마그네슘 350</em><small>마그네슘 350 mg</small></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>MAG 350</b><em>마그네슘 350</em></span></span></span></span>
-          <span class="prod__body"><strong class="prod__name">MAG 350 마그네슘 350</strong><span class="prod__desc">마그네슘 350 mg · 1일 2정</span><span class="prod__price"><del>29,000원</del><ins>25,000원</ins></span></span>
-        </a></li>
-        <li class="prod reveal"><a href="#" class="prod__link">
-          <span class="prod__thumb"><b class="badge badge--new">NEW</b><span class="pkg pkg--move"><span class="pkg__box"><span class="pkg__t"><i>LEVIO · 르비오</i><b>MOVE 1200</b><em>무브 1200 · 관절 · 연골</em><small>콘드로이친 1,200 mg</small></span></span><span class="pkg__bottle"><span class="pkg__l"><i>LEVIO · 르비오</i><b>MOVE 1200</b><em>무브 1200</em></span></span></span></span>
-          <span class="prod__body"><strong class="prod__name">MOVE 1200 무브 1200</strong><span class="prod__desc">콘드로이친 1,200 mg · 30포</span><span class="prod__price"><del>49,000원</del><ins>43,000원</ins></span></span>
-        </a></li>
-      </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -606,7 +609,7 @@
       <div class="review__viewport" id="reviewViewport">
         <ul class="review__track" id="reviewTrack">
           <li class="review__item">
-            <span class="review__thumb rv-bio" role="img" aria-label="BIO 10B 후기 사진"></span>
+            <span class="review__thumb"><img src="assets/img/life-lineup.webp" alt="후기 사진" loading="lazy"></span>
             <div class="review__body">
               <i class="stars" style="--r:100%"></i>
               <p class="review__text">두 달째 먹고 있는데 아침이 확실히 편해졌어요. 캡슐도 작아서 삼키기 부담 없습니다.</p>
@@ -614,23 +617,7 @@
             </div>
           </li>
           <li class="review__item">
-            <span class="review__thumb rv-collagen" role="img" aria-label="COLLAGEN GLOW 후기 사진"></span>
-            <div class="review__body">
-              <i class="stars" style="--r:100%"></i>
-              <p class="review__text">비린내 없는 콜라겐 처음이에요. 알약도 작고 목 넘김이 깔끔합니다.</p>
-              <p class="review__meta"><b>정O아</b> 님 · COLLAGEN GLOW</p>
-            </div>
-          </li>
-          <li class="review__item">
-            <span class="review__thumb rv-move" role="img" aria-label="MOVE 1200 후기 사진"></span>
-            <div class="review__body">
-              <i class="stars" style="--r:90%"></i>
-              <p class="review__text">아버지 챙겨드리려고 샀는데 포 형태라 드시기 편하다고 하시네요. 재구매합니다.</p>
-              <p class="review__meta"><b>이O수</b> 님 · MOVE 1200</p>
-            </div>
-          </li>
-          <li class="review__item">
-            <span class="review__thumb rv-active" role="img" aria-label="ACTIVE B8 후기 사진"></span>
+            <span class="review__thumb"><img src="assets/img/d-active.webp" alt="후기 사진" loading="lazy"></span>
             <div class="review__body">
               <i class="stars" style="--r:90%"></i>
               <p class="review__text">비타민B 특유의 냄새가 거의 안 나요. 아침에 한 알씩 챙겨 먹고 있습니다.</p>
@@ -638,7 +625,7 @@
             </div>
           </li>
           <li class="review__item">
-            <span class="review__thumb rv-night" role="img" aria-label="NIGHT 02 후기 사진"></span>
+            <span class="review__thumb"><img src="assets/img/life-night.webp" alt="후기 사진" loading="lazy"></span>
             <div class="review__body">
               <i class="stars" style="--r:80%"></i>
               <p class="review__text">자기 전에 한 알 먹고 눕는 루틴이 생겼어요. 패키지도 예뻐서 선물했습니다.</p>
@@ -646,7 +633,23 @@
             </div>
           </li>
           <li class="review__item">
-            <span class="review__thumb rv-mag" role="img" aria-label="MAG 350 후기 사진"></span>
+            <span class="review__thumb"><img src="assets/img/d-move.webp" alt="후기 사진" loading="lazy"></span>
+            <div class="review__body">
+              <i class="stars" style="--r:90%"></i>
+              <p class="review__text">아버지 챙겨드리려고 샀는데 포 형태라 드시기 편하다고 하시네요. 재구매합니다.</p>
+              <p class="review__meta"><b>이O수</b> 님 · MOVE 1200</p>
+            </div>
+          </li>
+          <li class="review__item">
+            <span class="review__thumb"><img src="assets/img/p-collagen.webp" alt="후기 사진" loading="lazy"></span>
+            <div class="review__body">
+              <i class="stars" style="--r:100%"></i>
+              <p class="review__text">비린내 없는 콜라겐 처음이에요. 알약도 작고 목 넘김이 깔끔합니다.</p>
+              <p class="review__meta"><b>정O아</b> 님 · COLLAGEN GLOW</p>
+            </div>
+          </li>
+          <li class="review__item">
+            <span class="review__thumb"><img src="assets/img/p-mag.webp" alt="후기 사진" loading="lazy"></span>
             <div class="review__body">
               <i class="stars" style="--r:90%"></i>
               <p class="review__text">눈 밑 떨림 때문에 시작했는데 2주쯤부터 확실히 덜해요.</p>
@@ -674,12 +677,12 @@
         <p class="sec-desc"><a href="#" class="insta-id">@levio_official</a></p>
       </header>
       <ul class="insta">
-        <li class="reveal"><a href="#" class="insta__cell rv-bio" aria-label="인스타그램 게시물 1"></a></li>
-        <li class="reveal"><a href="#" class="insta__cell rv-collagen" aria-label="인스타그램 게시물 2"></a></li>
-        <li class="reveal"><a href="#" class="insta__cell rv-move" aria-label="인스타그램 게시물 3"></a></li>
-        <li class="reveal"><a href="#" class="insta__cell rv-active" aria-label="인스타그램 게시물 4"></a></li>
-        <li class="reveal"><a href="#" class="insta__cell rv-night" aria-label="인스타그램 게시물 5"></a></li>
-        <li class="reveal"><a href="#" class="insta__cell rv-mag" aria-label="인스타그램 게시물 6"></a></li>
+        <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 1"><img src="assets/img/life-drop.webp" alt="" loading="lazy"></a></li>
+        <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 2"><img src="assets/img/hero-pack.webp" alt="" loading="lazy"></a></li>
+        <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 3"><img src="assets/img/scene-weigh.webp" alt="" loading="lazy"></a></li>
+        <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 4"><img src="assets/img/life-noir.webp" alt="" loading="lazy"></a></li>
+        <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 5"><img src="assets/img/hero-lab.webp" alt="" loading="lazy"></a></li>
+        <li class="reveal"><a href="#" class="insta__cell" aria-label="인스타그램 게시물 6"><img src="assets/img/d-night.webp" alt="" loading="lazy"></a></li>
       </ul>
     </div>
   </section>
@@ -688,6 +691,7 @@
 
 <!-- ================= 푸터 ================= -->
 <footer class="footer">
+  <span class="deco deco--ellipse deco--footer" aria-hidden="true"></span>
   <div class="container">
     <div class="footer__brand">
       <p class="footer__mark">LEVIO</p>

@@ -1,6 +1,8 @@
 /* =========================================================
-   르비오 LEVIO — 메인 스크립트
+   르비오 LEVIO — 메인 스크립트 v5
    의존성 없음 (Vanilla JS)
+   모듈: 팝업 · 히어로 · 필터 · 카운트다운 · 리뷰 · 드로어 ·
+         검색 · 언어 · 스크롤UI · 리빌 · 파인더 · 카운터 · 패럴랙스
    ========================================================= */
 (function () {
   'use strict';
@@ -9,7 +11,7 @@
   var $$ = function (s, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(s)); };
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 스크롤 잠금 (중첩 대응) ---------- */
+  /* ---------- 스크롤 잠금 (드로어용) ---------- */
   var lockCount = 0;
   function lockScroll() { lockCount++; document.body.classList.add('is-locked'); }
   function unlockScroll() {
@@ -18,7 +20,7 @@
   }
 
   /* =========================================================
-     1. 레이어 팝업
+     1. 레이어 팝업 (비차단 코너 카드)
      ========================================================= */
   (function layerPopup() {
     var pop = $('#layerpop');
@@ -88,7 +90,7 @@
     var allEl  = $('#heroAll');
     var playBtn = $('#heroPlay');
     var idx = 0, timer = null, playing = true;
-    var DURATION = 5500;
+    var DURATION = 6000;
 
     if (allEl) allEl.textContent = slides.length;
 
@@ -133,7 +135,6 @@
     viewport.addEventListener('mouseenter', stop);
     viewport.addEventListener('mouseleave', start);
 
-    /* 스와이프 */
     var sx = 0, sy = 0, dragging = false;
     viewport.addEventListener('touchstart', function (e) {
       sx = e.touches[0].clientX; sy = e.touches[0].clientY; dragging = true; stop();
@@ -147,14 +148,12 @@
       start();
     });
 
-    /* 키보드 */
     viewport.setAttribute('tabindex', '0');
     viewport.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowLeft')  { go(idx - 1); restart(); }
       if (e.key === 'ArrowRight') { go(idx + 1); restart(); }
     });
 
-    /* 탭이 백그라운드면 정지 */
     document.addEventListener('visibilitychange', function () {
       document.hidden ? stop() : start();
     });
@@ -194,7 +193,7 @@
   })();
 
   /* =========================================================
-     4. 타임세일 카운트다운
+     4. 타임세일 카운트다운 (틱 애니메이션 포함)
      ========================================================= */
   (function countdown() {
     var box = $('#timesale');
@@ -205,25 +204,34 @@
     var dEl = $('#cdD'), hEl = $('#cdH'), mEl = $('#cdM'), sEl = $('#cdS');
     var pad = function (n, len) { return String(n).padStart(len || 2, '0'); };
 
+    function setVal(el, val) {
+      if (el.textContent === val) return;
+      el.textContent = val;
+      if (reduceMotion) return;
+      el.classList.remove('tick');
+      void el.offsetWidth; /* 리플로 강제로 애니메이션 재시작 */
+      el.classList.add('tick');
+    }
+
     function tick() {
       var diff = end - Date.now();
       if (diff <= 0) {
-        dEl.textContent = '000'; hEl.textContent = mEl.textContent = sEl.textContent = '00';
+        setVal(dEl, '000'); setVal(hEl, '00'); setVal(mEl, '00'); setVal(sEl, '00');
         clearInterval(t);
         return;
       }
       var s = Math.floor(diff / 1000);
-      dEl.textContent = pad(Math.floor(s / 86400), 3);
-      hEl.textContent = pad(Math.floor(s % 86400 / 3600));
-      mEl.textContent = pad(Math.floor(s % 3600 / 60));
-      sEl.textContent = pad(s % 60);
+      setVal(dEl, pad(Math.floor(s / 86400), 3));
+      setVal(hEl, pad(Math.floor(s % 86400 / 3600)));
+      setVal(mEl, pad(Math.floor(s % 3600 / 60)));
+      setVal(sEl, pad(s % 60));
     }
     tick();
     var t = setInterval(tick, 1000);
   })();
 
   /* =========================================================
-     5. 리뷰 캐러셀 (가로 스크롤 + 버튼)
+     5. 리뷰 캐러셀
      ========================================================= */
   (function reviewSlider() {
     var vp = $('#reviewViewport');
@@ -277,7 +285,6 @@
     open.addEventListener('click', show);
     $$('[data-close-drawer]', box).forEach(function (el) { el.addEventListener('click', hide); });
 
-    /* 아코디언 */
     $$('.acc__head', box).forEach(function (head) {
       head.addEventListener('click', function () {
         var item = head.closest('.acc__item');
@@ -286,7 +293,6 @@
       });
     });
 
-    /* 데스크탑으로 넓어지면 자동 닫기 */
     window.addEventListener('resize', function () {
       if (window.innerWidth > 1023 && !box.hidden) hide();
     });
@@ -334,22 +340,36 @@
   })();
 
   /* =========================================================
-     9. 헤더 그림자 + 맨 위로
+     9. 헤더 그림자 + 맨 위로 + 패럴랙스
      ========================================================= */
   (function scrollUI() {
     var header = $('#header');
     var topBtn = $('#topBtn');
+    var pxEls = $$('[data-parallax]');
     var ticking = false;
 
     function update() {
       var y = window.pageYOffset;
       if (header) header.classList.toggle('is-stuck', y > 10);
       if (topBtn) topBtn.classList.toggle('is-on', y > 500);
+
+      /* 패럴랙스: 뷰포트 중심 대비 요소 위치 × 속도 */
+      if (!reduceMotion) {
+        var vh2 = window.innerHeight / 2;
+        pxEls.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.bottom < -80 || r.top > window.innerHeight + 80) return;
+          var speed = parseFloat(el.dataset.parallax) || 0;
+          var delta = (r.top + r.height / 2 - vh2) * speed;
+          el.style.transform = 'translate3d(0,' + delta.toFixed(1) + 'px,0)';
+        });
+      }
       ticking = false;
     }
     window.addEventListener('scroll', function () {
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
+    window.addEventListener('resize', update);
     update();
 
     if (topBtn) {
@@ -360,7 +380,7 @@
   })();
 
   /* =========================================================
-     10. 스크롤 등장 애니메이션
+     10. 스크롤 리빌 (스태거)
      ========================================================= */
   (function reveal() {
     var items = $$('.reveal');
@@ -378,12 +398,172 @@
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.06 });
 
-    /* 같은 그리드 안에서는 순차 지연 */
     items.forEach(function (el) {
       var siblings = el.parentElement ? $$('.reveal', el.parentElement) : [el];
       var i = siblings.indexOf(el);
       if (i > 0) el.style.transitionDelay = Math.min(i, 6) * 60 + 'ms';
       io.observe(el);
+    });
+  })();
+
+  /* =========================================================
+     11. 숫자 카운터 (스트립)
+     ========================================================= */
+  (function counters() {
+    var els = $$('[data-counter]');
+    if (!els.length) return;
+
+    function animate(el) {
+      var target = parseInt(el.dataset.counter, 10) || 0;
+      if (reduceMotion) { el.textContent = target; return; }
+      var t0 = null, DUR = 1200;
+      function frame(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / DUR, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased);
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.textContent = el.dataset.counter; });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        animate(en.target);
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.4 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* =========================================================
+     12. 고민 파인더 — 키워드 매칭 제품 추천
+     ========================================================= */
+  (function finder() {
+    var form = $('#finderForm');
+    var input = $('#finderInput');
+    var result = $('#finderResult');
+    if (!form || !input || !result) return;
+
+    var PRODUCTS = [
+      {
+        id: 'bio', name: 'BIO 10B 바이오 10B', img: 'assets/img/d-bio.webp',
+        spec: '프로바이오틱스 100억 CFU · 1일 1캡슐',
+        del: '39,000원', price: '33,000원',
+        reason: '장이 보내는 신호에는 유산균 루틴부터 시작해 보세요. 100억 보장균수가 장까지 살아서 도착합니다.',
+        kw: ['장', '소화', '변', '배', '속', '더부룩', '가스', '유산균', '프로바이오', '예민']
+      },
+      {
+        id: 'collagen', name: 'COLLAGEN GLOW 콜라겐 글로우', img: 'assets/img/p-collagen.webp',
+        spec: '데일리 이너뷰티 · 1일 1정 · 60일',
+        del: '45,000원', price: '38,000원',
+        reason: '푸석함이 느껴질 땐 안에서 채우는 게 먼저예요. 저분자 콜라겐으로 매일의 이너뷰티 루틴을 만들어 보세요.',
+        kw: ['피부', '푸석', '탄력', '콜라겐', '미용', '주름', '건조', '뷰티', '광']
+      },
+      {
+        id: 'move', name: 'MOVE 1200 무브 1200', img: 'assets/img/d-move.webp',
+        spec: '콘드로이친 1,200 mg · 1일 1포 · 30일',
+        del: '49,000원', price: '43,000원',
+        reason: '계단이 부담스러워지기 시작했다면 관절 · 연골을 챙길 때입니다. 하루 한 포로 간편하게 이어가세요.',
+        kw: ['관절', '무릎', '연골', '계단', '시큰', '뼈', '콘드로이친', '등산', '부담']
+      },
+      {
+        id: 'active', name: 'ACTIVE B8 액티브 B8', img: 'assets/img/d-active.webp',
+        spec: '비타민 B군 8종 · 에너지 · 활력',
+        del: '32,000원', price: '28,000원',
+        reason: '무거운 아침이 반복된다면 에너지 대사에 필요한 비타민 B군 8종으로 하루의 시동을 걸어 보세요.',
+        kw: ['피로', '아침', '무거', '활력', '에너지', '회식', '야근', '지침', '비타민', '기운', '나른']
+      },
+      {
+        id: 'night', name: 'NIGHT 02 나이트 02', img: 'assets/img/d-night.webp',
+        spec: '식물 유래 멜라토닌 2 mg · 수면 루틴',
+        del: '36,000원', price: '31,000원',
+        reason: '잠들기까지 오래 걸린다면, 잠들기 30분 전 한 알의 루틴을 만들어 보세요. 식물 유래 멜라토닌 2mg입니다.',
+        kw: ['잠', '수면', '불면', '뒤척', '새벽', '멜라토닌', '피곤한데', '밤']
+      },
+      {
+        id: 'mag', name: 'MAG 350 마그네슘 350', img: 'assets/img/p-mag.webp',
+        spec: '마그네슘 350 mg · 1일 2정 · 30일',
+        del: '29,000원', price: '25,000원',
+        reason: '눈 밑 떨림과 근육 경련이 잦다면 마그네슘 신호일 수 있어요. 하루 350mg으로 채워 보세요.',
+        kw: ['떨림', '눈밑', '눈 밑', '근육', '경련', '마그네슘', '쥐', '뭉침']
+      }
+    ];
+
+    function match(text) {
+      var scored = PRODUCTS.map(function (p) {
+        var score = 0;
+        p.kw.forEach(function (k) { if (text.indexOf(k) !== -1) score += k.length >= 2 ? 2 : 1; });
+        return { p: p, score: score };
+      }).filter(function (x) { return x.score > 0; });
+      scored.sort(function (a, b) { return b.score - a.score; });
+      return scored.map(function (x) { return x.p; });
+    }
+
+    function cardHTML(p, isSub) {
+      return '' +
+        '<div class="rcard' + (isSub ? ' rcard--sub' : '') + '">' +
+          '<span class="rcard__thumb"><img src="' + p.img + '" alt="' + p.name + '"></span>' +
+          '<div class="rcard__body">' +
+            '<span class="rcard__match">' + (isSub ? 'Also good' : 'Best match') + '</span>' +
+            '<strong class="rcard__name">' + p.name + '</strong>' +
+            '<p class="rcard__reason">' + p.reason + '</p>' +
+            '<p class="rcard__price"><del>' + p.del + '</del><ins>' + p.price + '</ins></p>' +
+            '<span class="rcard__cta">' +
+              '<a href="#" class="btn btn--dark btn--sm">자세히 보기</a>' +
+              '<a href="#" class="btn btn--line btn--sm">장바구니 담기</a>' +
+            '</span>' +
+          '</div>' +
+        '</div>';
+    }
+
+    function render(text) {
+      var found = match(text);
+      if (!found.length) {
+        result.innerHTML =
+          '<div class="finder__none">' +
+            '아직 딱 맞는 제품을 찾지 못했어요.<br>' +
+            '<b>장 · 피부 · 관절 · 피로 · 수면 · 근육 떨림</b> 중 가까운 고민을 선택하거나 조금 더 자세히 적어주세요.' +
+          '</div>';
+      } else {
+        var html = cardHTML(found[0], false);
+        if (found[1]) html += cardHTML(found[1], true);
+        result.innerHTML = html;
+      }
+      /* 등장 애니메이션 */
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          $$('.rcard, .finder__none', result).forEach(function (el, i) {
+            el.style.transitionDelay = i * 120 + 'ms';
+            el.classList.add('is-in');
+          });
+        });
+      });
+      var y = result.getBoundingClientRect().top + window.pageYOffset - 140;
+      if (Math.abs(window.pageYOffset - y) > 60) {
+        window.scrollTo({ top: y, behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var text = input.value.trim();
+      if (!text) { input.focus(); return; }
+      $$('.chip').forEach(function (c) { c.classList.remove('is-on'); });
+      render(text);
+    });
+
+    $$('.chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        $$('.chip').forEach(function (c) { c.classList.toggle('is-on', c === chip); });
+        input.value = chip.dataset.concern || chip.textContent.trim();
+        render(input.value);
+      });
     });
   })();
 
