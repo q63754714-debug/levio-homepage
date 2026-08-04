@@ -22,7 +22,12 @@
   --c-line-2:#dddddd;
   --c-dark:#1c1a17;
 
-  --c-accent:#6e7355;    /* BIO 10B 올리브 */
+  /* 브랜드 그린 — 로고 원본에서 추출한 실제 값 */
+  --c-accent:#759a18;
+  /* 흰 글씨를 올리는 곳(뱃지·카운트)용 진한 변형. #759a18은 흰 글씨 대비 3.3:1로
+     작은 글씨 기준 WCAG AA에 미달하므로 아래 값(5.0:1)을 쓴다. */
+  --c-accent-deep:#5c7a13;
+  --c-olive:#6e7355;     /* BIO 10B 패키지 올리브 */
   --c-night:#574860;     /* NIGHT 02 플럼 */
   --c-sale:#a81f2a;      /* COLLAGEN GLOW 크림슨 */
 
@@ -127,11 +132,11 @@ body.is-locked{overflow:hidden;}
 .btn:not(.btn--sm)::after{content:"→";margin-left:12px;font-family:var(--f-display);font-weight:400;transition:transform .3s var(--ease);}
 .btn:not(.btn--sm):hover::after{transform:translateX(5px);}
 .btn--dark{background:var(--c-dark);color:var(--c-paper);border-color:var(--c-dark);}
-.btn--dark:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fff;}
+.btn--dark:hover{background:var(--c-accent-deep);border-color:var(--c-accent-deep);color:#fff;}
 .btn--line{background:transparent;color:var(--c-dark);border-color:var(--c-line-2);}
 .btn--line:hover{background:var(--c-dark);color:var(--c-paper);border-color:var(--c-dark);}
 .btn--paper{background:#fff;color:var(--c-dark);border-color:#fff;}
-.btn--paper:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fff;}
+.btn--paper:hover{background:var(--c-accent-deep);border-color:var(--c-accent-deep);color:#fff;}
 .btn--sm{min-height:42px;padding:0 18px;font-size:12.5px;letter-spacing:.02em;}
 .btn--wide{min-width:280px;}
 .btn--full{width:100%;}
@@ -211,13 +216,15 @@ body.is-locked{overflow:hidden;}
 .gnb__sub a{display:block;padding:9px 26px;font-size:13px;color:var(--c-sub);transition:color .2s,background-color .2s,padding-left .2s;}
 .gnb__sub a:hover{color:var(--c-dark);background:var(--c-paper-2);padding-left:30px;}
 
+/* 로고 — 브랜드 원본 이미지 사용 */
 .logo{flex:none;text-align:center;padding:0 44px;}
-.logo__mark{display:block;font-family:var(--f-body);font-size:25px;font-weight:800;letter-spacing:.3em;text-indent:.3em;color:var(--c-dark);line-height:1;}
-.logo__kr{display:block;margin-top:6px;font-size:10px;letter-spacing:.4em;text-indent:.4em;color:var(--c-light);}
+.logo a{display:block;}
+.logo__img{width:132px;height:auto;margin:0 auto;}
+.logo__kr{display:block;margin-top:7px;font-size:10px;letter-spacing:.4em;text-indent:.4em;color:var(--c-light);}
 
 .gnb__util{flex:1 1 0;display:flex;align-items:center;justify-content:flex-end;gap:6px;}
 .cart{position:relative;}
-.cart__count{position:absolute;top:2px;right:0;min-width:17px;height:17px;padding:0 4px;display:flex;align-items:center;justify-content:center;background:var(--c-accent);color:#fff;border-radius:9px;font-size:10px;font-weight:500;letter-spacing:0;}
+.cart__count{position:absolute;top:2px;right:0;min-width:17px;height:17px;padding:0 4px;display:flex;align-items:center;justify-content:center;background:var(--c-accent-deep);color:#fff;border-radius:9px;font-size:10px;font-weight:500;letter-spacing:0;}
 
 .searchbar{
   position:sticky;top:var(--header-h);z-index:480;
@@ -244,7 +251,7 @@ body.is-locked{overflow:hidden;}
 .drawer__panel{position:absolute;top:0;left:0;bottom:0;width:84%;max-width:340px;background:var(--c-paper);display:flex;flex-direction:column;animation:slideIn .4s var(--ease-out) both;overflow-y:auto;}
 @keyframes slideIn{from{transform:translateX(-100%);}to{transform:none;}}
 .drawer__head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--c-line);}
-.drawer__logo{font-family:var(--f-body);font-size:18px;font-weight:800;letter-spacing:.28em;}
+.drawer__logo{width:104px;height:auto;}
 .drawer__auth{display:flex;gap:8px;padding:18px 22px;}
 .drawer__auth .btn{flex:1;padding:0 10px;font-size:12px;}
 .drawer__nav{border-top:1px solid var(--c-line);}
@@ -380,7 +387,7 @@ body.is-locked{overflow:hidden;}
 
 .badge{position:absolute;top:14px;left:14px;z-index:5;display:inline-flex;align-items:center;height:24px;padding:0 10px;font-size:10px;font-weight:500;letter-spacing:.14em;text-indent:.14em;color:var(--c-paper);}
 .badge--best{background:var(--c-dark);}
-.badge--new{background:var(--c-accent);}
+.badge--new{background:var(--c-accent-deep);}
 .badge--sale{background:var(--c-sale);left:auto;right:14px;letter-spacing:.02em;text-indent:0;}
 
 .prod__body{display:block;padding-top:20px;text-align:left;}
@@ -505,7 +512,7 @@ body.is-locked{overflow:hidden;}
 .split__col--member .split__text{color:rgba(255,255,255,.6);}
 .split__inner .btn{margin-top:40px;}
 .split__col--member .btn--dark{background:var(--c-paper);color:var(--c-dark);border-color:var(--c-paper);}
-.split__col--member .btn--dark:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fff;}
+.split__col--member .btn--dark:hover{background:var(--c-accent-deep);border-color:var(--c-accent-deep);color:#fff;}
 .benefit{margin-top:36px;}
 .benefit li{display:flex;gap:20px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.12);}
 .benefit li:first-child{border-top:1px solid rgba(255,255,255,.12);}
@@ -599,7 +606,7 @@ body.is-locked{overflow:hidden;}
 .footer{position:relative;overflow:hidden;padding:90px 0 70px;border-top:1px solid var(--c-line);background:var(--c-paper);}
 .footer > .container{position:relative;z-index:1;}
 .footer__brand{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:44px;}
-.footer__mark{font-family:var(--f-body);font-weight:800;font-size:clamp(30px,4vw,48px);letter-spacing:.3em;color:var(--c-dark);line-height:1;}
+.footer__mark{width:clamp(180px,22vw,280px);height:auto;}
 .footer__tag{font-family:var(--f-display);font-style:italic;font-size:13px;color:var(--c-light);letter-spacing:.04em;padding-bottom:8px;}
 .footer__links{display:flex;flex-wrap:wrap;gap:28px;padding:28px 0 32px;border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);font-size:13px;color:var(--c-sub);}
 .footer__links a:hover{color:var(--c-dark);}
@@ -639,7 +646,7 @@ body.is-locked{overflow:hidden;}
   .section{padding:100px 0;}
   .gnb__list{gap:28px;}
   .logo{padding:0 26px;}
-  .logo__mark{font-size:22px;}
+  .logo__img{width:116px;}
   .prod-grid{column-gap:24px;row-gap:52px;}
   .insta{grid-template-columns:repeat(3,1fr);}
   .split__col{padding:100px 32px;}
@@ -658,8 +665,8 @@ body.is-locked{overflow:hidden;}
   .gnb__menu{display:inline-flex;}
   .gnb__inner{height:62px;justify-content:space-between;}
   .logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:0;}
-  .logo__mark{font-size:19px;}
-  .logo__kr{font-size:9px;margin-top:3px;}
+  .logo__img{width:98px;}
+  .logo__kr{font-size:9px;margin-top:4px;letter-spacing:.34em;text-indent:.34em;}
   .gnb__util{flex:none;}
 
   .searchbar__inner{padding-top:20px;padding-bottom:18px;}
@@ -821,7 +828,7 @@ body.is-locked{overflow:hidden;}
 
 @media (max-width:359px){
   .prod-grid,.prod-grid--3{column-gap:10px;}
-  .logo__mark{font-size:17px;}
+  .logo__img{width:88px;}
 }
 
 /* ---------- 23. 접근성 / 인쇄 ---------- */
