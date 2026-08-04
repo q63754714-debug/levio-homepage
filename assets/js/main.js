@@ -551,14 +551,12 @@
         if (found[1]) html += cardHTML(found[1], true);
         result.innerHTML = html;
       }
-      /* 등장 애니메이션 */
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          $$('.rcard, .finder__none', result).forEach(function (el, i) {
-            el.style.transitionDelay = i * 120 + 'ms';
-            el.classList.add('is-in');
-          });
-        });
+      /* 등장 애니메이션.
+         rAF는 백그라운드 탭에서 지연될 수 있어, 강제 리플로 후 동기적으로 클래스를 건다. */
+      $$('.rcard, .finder__none', result).forEach(function (el, i) {
+        void el.offsetWidth;
+        el.style.transitionDelay = i * 120 + 'ms';
+        el.classList.add('is-in');
       });
       var y = result.getBoundingClientRect().top + window.pageYOffset - 140;
       if (Math.abs(window.pageYOffset - y) > 60) {
