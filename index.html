@@ -18,7 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@400;600;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero-pack.webp">
-<link rel="stylesheet" href="assets/css/style.css">
+<!-- ?v= 는 캐시 무력화용. CSS/JS를 수정하면 이 값을 함께 올려야
+     기존 방문자에게도 즉시 반영된다 (GitHub Pages가 에셋을 캐시함). -->
+<link rel="stylesheet" href="assets/css/style.css?v=6">
 </head>
 <body>
 
@@ -756,6 +758,6 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=6"></script>
 </body>
 </html>
