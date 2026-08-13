@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>르비오 LEVIO — 성분 설계 기반 데일리 뉴트리션</title>
-<meta name="description" content="르비오는 성분 조성과 섭취 기준을 제품 앞면에 그대로 적습니다. 기능성 원료와 인정 근거를 함께 확인하세요.">
+<title>CELONE 셀론 — 성분 설계 기반 데일리 뉴트리션</title>
+<meta name="description" content="CELONE은 성분 조성과 섭취 기준을 제품 앞면에 그대로 적습니다. 기능성 원료와 인정 근거를 함께 확인하세요.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@main/packages/wanted-sans/fonts/webfonts/variable/complete/WantedSansVariable.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap">
 <style>
 /* ============================================================
-   LEVIO LAB
+   CELONE LAB
    스크롤 연출 구성
      - Lenis 스무스 스크롤
      - 배경 워드마크 6줄 세로 무한 흐름
@@ -23,19 +23,22 @@
 :root{
   /* 색은 제품 사진에서 직접 뽑았습니다.
      배경은 촬영 배경의 크림, 액센트는 패키지의 크림슨, 회색은 전부 웜 계열. */
-  --bg:#faf8f5;
-  --text:#6b635c;
-  --head:#221d19;
-  --accent:#a4232f;
-  --accent-deep:#7d1a23;
-  --line:#e6dfd6;
-  --line-soft:#f0ebe4;
-  --wash:#f2ece4;
+  /* CELONE 브랜드 팔레트. 배경 크림과 올리브는 로고 락업에서 그대로 가져왔습니다. */
+  --bg:#f7f6f0;
+  --text:#6d6c60;
+  --head:#26261f;
+  --accent:#7d8a4a;
+  --accent-deep:#5f6a35;
+  --line:#e2e0d4;
+  --line-soft:#eeece2;
+  --wash:#efece1;
   /* 본문은 각진 한글 그로테스크(SUIT), 라틴 디스플레이는 Space Grotesk.
      둘 다 네모진 지오메트릭이라 한글·영문이 섞여도 골격이 어긋나지 않습니다. */
   --sans:"SUIT Variable","Wanted Sans Variable","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --display:"Space Grotesk","SUIT Variable",var(--sans);
   --label:"Space Grotesk","SUIT Variable",var(--sans);
+  /* 워드마크 전용. 로고와 같은 고대비 세리프 + 넓은 자간입니다. */
+  --logo:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --pad:clamp(18px,4vw,64px);
   --header-h:74px;
@@ -69,7 +72,7 @@ html.lenis,html.lenis body{height:auto}
   transition:opacity .8s var(--ease),visibility .8s
 }
 .preloader.is-done{opacity:0;visibility:hidden}
-.pre-mark{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:.34em;color:var(--head);overflow:hidden}
+.pre-mark{font-family:var(--logo);font-size:30px;font-weight:500;letter-spacing:.4em;color:var(--head);overflow:hidden}
 .pre-mark span{display:inline-block;transform:translateY(105%);animation:preUp .9s var(--ease) forwards}
 @keyframes preUp{to{transform:none}}
 .pre-bar{width:min(220px,50vw);height:1px;background:var(--line);margin-top:20px;overflow:hidden}
@@ -132,7 +135,7 @@ html.lenis,html.lenis body{height:auto}
 }
 .site-header.is-solid{background:rgba(255,255,255,.94);backdrop-filter:blur(14px);color:var(--head);box-shadow:0 1px 0 var(--line-soft)}
 .site-header.is-hidden{transform:translateY(-100%)}
-.wordmark{font-family:var(--display);font-size:21px;font-weight:600;letter-spacing:.24em}
+.wordmark{font-family:var(--logo);font-size:27px;font-weight:500;letter-spacing:.34em;line-height:1}
 .wordmark sup{font-size:8px;letter-spacing:0;vertical-align:super;opacity:.7}
 .header-right{display:flex;align-items:center;gap:18px}
 .lang{display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:.08em;padding:7px 12px;border:1px solid currentColor;border-radius:999px;opacity:.85;transition:opacity .3s}
@@ -354,9 +357,9 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---------- 문의 ---------- */
 .contact{position:relative;overflow:hidden;background:#1a1512;color:#fff;text-align:center;padding:clamp(58px,7.5vh,104px) var(--pad)}
-.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(164,35,47,.42),transparent 62%)}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(125,138,74,.44),transparent 62%)}
 .contact-inner{position:relative;z-index:1;display:grid;justify-items:center;gap:24px}
-.contact .eyebrow{color:#e0a6ab}
+.contact .eyebrow{color:#b9c489}
 .contact h2{font-family:var(--display);font-weight:200;font-size:clamp(26px,3.6vw,46px);line-height:1.2;letter-spacing:-.05em;color:#fff;max-width:20ch}
 .contact h2 b{font-weight:700}
 .contact-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:8px}
@@ -374,7 +377,7 @@ html.lenis,html.lenis body{height:auto}
 /* ---------- 푸터 ---------- */
 .site-footer{padding:clamp(56px,8vh,96px) var(--pad) 40px;border-top:1px solid var(--line)}
 .footer-grid{display:grid;grid-template-columns:1.4fr repeat(2,1fr);gap:clamp(26px,4vw,60px)}
-.footer-wordmark{font-family:var(--display);font-size:26px;font-weight:500;letter-spacing:.24em;color:var(--head)}
+.footer-wordmark{font-family:var(--logo);font-size:34px;font-weight:500;letter-spacing:.36em;color:var(--head)}
 .footer-grid h4{font-family:var(--label);font-size:10.5px;font-weight:600;letter-spacing:.2em;color:var(--head);text-transform:uppercase;margin-bottom:16px}
 .footer-grid p,.footer-grid li{font-size:12.5px;font-weight:350;line-height:1.95}
 .footer-bottom{margin-top:clamp(36px,6vh,64px);padding-top:22px;border-top:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:11.5px;color:#9a9a9a}
@@ -430,7 +433,7 @@ html.lenis,html.lenis body{height:auto}
 }
 .cursor.is-on{opacity:1}
 .cursor.is-dark{border-color:rgba(255,255,255,.6)}
-.cursor.is-hot{width:62px;height:62px;margin:-31px 0 0 -31px;background:rgba(164,35,47,.14);border-color:var(--accent)}
+.cursor.is-hot{width:62px;height:62px;margin:-31px 0 0 -31px;background:rgba(125,138,74,.16);border-color:var(--accent)}
 .cursor-dot{position:fixed;left:0;top:0;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:var(--accent);z-index:121;pointer-events:none;opacity:0;transition:opacity .3s}
 .cursor-dot.is-on{opacity:1}
 @media (hover:none),(max-width:860px){.cursor,.cursor-dot{display:none}}
@@ -498,7 +501,7 @@ html.lenis,html.lenis body{height:auto}
 
 <div class="preloader" id="preloader">
   <div style="display:grid;justify-items:center">
-    <p class="pre-mark"><span>LEVIO</span></p>
+    <p class="pre-mark"><span>CELONE</span></p>
     <span class="pre-bar"><i></i></span>
   </div>
 </div>
@@ -509,7 +512,7 @@ html.lenis,html.lenis body{height:auto}
 <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
 <header class="site-header" id="siteHeader">
-  <a class="wordmark" href="#top">LEVIO<sup>&reg;</sup></a>
+  <a class="wordmark" href="#top">CELONE<sup>&reg;</sup></a>
   <div class="header-right">
     <a class="lang" href="#top" aria-label="언어 선택">
       <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
@@ -538,7 +541,7 @@ html.lenis,html.lenis body{height:auto}
   <section class="hero" id="hero">
     <div class="hero-stage" id="heroStage">
       <figure class="hero-frame" id="heroFrame">
-        <img id="heroImg" src="https://ecimg.cafe24img.com/pg3183b75242825081/leviooffical/web/upload/category/7e056f2eea45d61e73076c0e1b4041c5.jpg" alt="르비오 품질 검사 공정" fetchpriority="high">
+        <img id="heroImg" src="https://ecimg.cafe24img.com/pg3183b75242825081/leviooffical/web/upload/category/7e056f2eea45d61e73076c0e1b4041c5.jpg" alt="CELONE 품질 검사 공정" fetchpriority="high">
         <span class="hero-veil" id="heroVeil" aria-hidden="true"></span>
       </figure>
       <div class="hero-over" id="heroOver">
@@ -583,9 +586,9 @@ html.lenis,html.lenis body{height:auto}
         <div class="intro-flyers" id="introFlyers"></div>
         <div class="intro-txt">
           <p class="sec-index" style="justify-content:center"><b>01</b><span style="max-width:80px"></span>BRAND</p>
-          <p class="eyebrow">Why LEVIO</p>
+          <p class="eyebrow">Why CELONE</p>
           <h2 class="display split" data-split>고르는 시간을 줄이는 설계</h2>
-          <p class="lead">성분표를 뒤집어 읽고, 함량을 계산하고, 하루 몇 정인지 다시 확인하는 과정을 없앴습니다. 르비오는 기능성 원료의 함량과 섭취 기준을 제품 앞면에 그대로 인쇄합니다.</p>
+          <p class="lead">성분표를 뒤집어 읽고, 함량을 계산하고, 하루 몇 정인지 다시 확인하는 과정을 없앴습니다. CELONE은 기능성 원료의 함량과 섭취 기준을 제품 앞면에 그대로 인쇄합니다.</p>
           <a class="textlink" href="#tech">성분 설계 보기 <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h10M7 2l4 4-4 4"/></svg></a>
         </div>
       </div>
@@ -678,13 +681,13 @@ html.lenis,html.lenis body{height:auto}
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-wordmark-col">
-        <p class="footer-wordmark">LEVIO</p>
+        <p class="footer-wordmark">CELONE</p>
         <p style="margin-top:12px">정돈된 데일리 셀렉션</p>
       </div>
       <!-- ⚠ 사업자 정보는 실제 값으로 교체가 필요합니다. -->
       <div>
         <h4>Company</h4>
-        <p>르비오<br>대표 —<br>사업자등록번호 —<br>통신판매업신고 —</p>
+        <p>CELONE<br>대표 —<br>사업자등록번호 —<br>통신판매업신고 —</p>
       </div>
       <div>
         <h4>Customer</h4>
@@ -692,7 +695,7 @@ html.lenis,html.lenis body{height:auto}
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; LEVIO. All rights reserved.</span>
+      <span>&copy; CELONE. All rights reserved.</span>
       <span class="footer-sns"><a href="#top">Instagram</a><a href="#top">Blog</a><a href="#top">YouTube</a></span>
     </div>
   </footer>
@@ -767,7 +770,7 @@ html.lenis,html.lenis body{height:auto}
       for(var k=0;k<3;k++){
         var delay=-(Math.random()*dur)-(dur/3)*k;
         spans+='<span style="animation-duration:'+dur.toFixed(1)+'s;animation-delay:'+delay.toFixed(1)+'s">'
-             + new Array(9).join('LEVIO&nbsp;&nbsp;') + '</span>';
+             + new Array(9).join('CELONE&nbsp;&nbsp;') + '</span>';
       }
       html+='<div class="brandline" style="left:'+left+'%">'+spans+'</div>';
     }
